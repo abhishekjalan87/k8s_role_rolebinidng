@@ -4,10 +4,14 @@
 
 ##### Using RBAC Cluster Role and rolebinding on K8S cluster level.
 
-##login any K8S master Server
-##Create new user "developer" # for developer
+Please follow the below steps:
+
+##login to your Kubernetes master Server
+##Create new user "developer" you can use choose any name.
+
 useradd developer
 
+#generate crt and key for developer account.
 openssl genrsa -out developer-sg.key 2048
 openssl req -new -key developer-sg.key -out developer-sg.csr -subj "/CN=developer/O=root"
 
@@ -22,7 +26,7 @@ kubectl config set-context developer --cluster=singapore --user=developer
 kubectl create -f cluster-role.yaml
 
 
-##create a new config file as per the attached sample
+##create a new config file for read-only account as per the attached sample.
 
 
 Once everything done, just copy the below files to your home directory /home/user/.kube/.
