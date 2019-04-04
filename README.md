@@ -1,12 +1,11 @@
-# k8s_role_rolebinidng
-Kubernetes Read-Only Role &amp; Rolebinding
+# Kubernetes Read-Only Role &amp; Rolebinding
 
 
 
-#####Using RBAC Cluster Role and rolebinding on K8S cluster level.
+##### Using RBAC Cluster Role and rolebinding on K8S cluster level.
 
 ##login any K8S master Server
-## Create new user "developer" # for developer
+##Create new user "developer" # for developer
 useradd developer
 
 openssl genrsa -out developer-sg.key 2048
