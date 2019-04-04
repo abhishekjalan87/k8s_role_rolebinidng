@@ -18,35 +18,12 @@ kubectl config set-credentials developer --client-certificate=developer-sg.crt  
 ##make sure about clustername, you can verify from admin config file.
 kubectl config set-context developer --cluster=singapore --user=developer
 
-##Create new yaml file with name "cluster-role.yaml"
+##Make sure you downloaded my cluster-role.yaml file. 
 kubectl create -f cluster-role.yaml
 
 
-##create a new config file
-vim config
+##create a new config file as per the attached sample
 
-###################################################################################################
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: ******paste your certificate here ****
-    server: paste your k8s cluster ip or url
-  name: singapore
-contexts:
-- context:
-    cluster: singapore
-    user: developer
-  name: developer
-current-context: developer
-kind: Config
-preferences: {}
-users:
-- name: developer
-  user:
-    client-certificate: /root/.kube/developer.crt
-    client-key: /root/.kube/developer.key
-
-###################################################################################################
 
 Once everything done, just copy the below files to your home directory /home/user/.kube/.
 config, developer.crt, developer.key
@@ -54,6 +31,6 @@ config, developer.crt, developer.key
 run:
 #kubectl get pods --all-namespaces
 
-###################################################################################################
+
 
 
