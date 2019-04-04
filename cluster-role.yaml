@@ -1,0 +1,44 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: devops-clusterrole
+rules:
+- apiGroups: [""]
+  resources:
+    - componentstatuses
+    - configmaps
+    - daemonsets
+    - deployments
+    - events
+    - endpoints
+    - horizontalpodautoscalers
+    - ingress
+    - jobs
+    - limitranges
+    - namespaces
+    - nodes
+    - pods
+    - pods/log
+    - persistentvolumes
+    - persistentvolumeclaims
+    - replicasets
+    - replicationcontrollers
+    - secrets
+    - serviceaccounts
+    - services
+  verbs: ["get", "watch", "list"]
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: devops-clusterrolebinding
+subjects:
+- kind: User
+  name: developer
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: devops-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
