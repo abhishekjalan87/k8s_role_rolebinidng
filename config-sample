@@ -1,0 +1,22 @@
+###################################################################################################
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: paste your k8s certificate 
+    server: paste your k8s ip or url
+  name: singapore
+contexts:
+- context:
+    cluster: singapore
+    user: developer
+  name: developer
+current-context: developer
+kind: Config
+preferences: {}
+users:
+- name: developer
+  user:
+    client-certificate: /root/.kube/developer.crt
+    client-key: /root/.kube/developer.key
+
+###################################################################################################
